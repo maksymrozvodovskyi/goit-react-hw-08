@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 export default function ContactPage() {
   const dispatch = useDispatch();
-  //   const isLoading = useSelector(selectLoading);
+  // const isLoading = useSelector(selectLoading);
 
   useEffect(() => {
     dispatch(fetchContacts());
