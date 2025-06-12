@@ -22,7 +22,24 @@ export const login = createAsyncThunk("auth/login", async (values) => {
 });
 
 export const logout = createAsyncThunk("auth/logout", async () => {
-  const res = await axios.post("/users/logout");
+  await axios.post("/users/logout");
 
   setAuthHeader("");
 });
+
+export const refreshUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    const reduxState = thunkAPI.getState();
+    setAuthHeader(`Bearer ${reduxState.auth.token}`);
+
+    const res = await axios.get("/users/current");
+    return res.data;
+  },
+  {
+    condition: (_, thunkAPI) => {
+      const reduxState = thunkAPI.getState();
+      return reduxState.auth.token !== null;
+    },
+  }
+);

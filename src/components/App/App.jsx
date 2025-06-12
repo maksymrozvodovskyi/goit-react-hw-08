@@ -1,12 +1,13 @@
 import ContactForm from "../ContactForm/ContactForm";
 import SearchBox from "../SearchBox/SearchBox";
 import ContactList from "../ContactList/ContactList";
-import { useDispatch } from "react-redux";
-import { fetchContacts } from "../../redux/contacts/operations";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Layout from "../Layout/Layout";
+import { refreshUser } from "../../redux/auth/operations";
+import { selectIsRefreshing } from "../../redux/auth/selectors";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() =>
@@ -19,19 +20,18 @@ const ContactsPage = lazy(() =>
 
 export default function App() {
   const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
-    dispatch(fetchContacts())
+    dispatch(refreshUser())
       .unwrap()
       .then(() => {})
       .catch(() => {});
   }, [dispatch]);
 
-  return (
-    /* <h1>Phonebook</h1>
-      <ContactForm />
-      <SearchBox />
-      <ContactList /> */
+  return isRefreshing ? (
+    <strong>Refreshing...</strong>
+  ) : (
     <Layout>
       <Suspense fallback={null}>
         <Routes>
