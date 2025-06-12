@@ -8,6 +8,8 @@ import { lazy, Suspense } from "react";
 import Layout from "../Layout/Layout";
 import { refreshUser } from "../../redux/auth/operations";
 import { selectIsRefreshing } from "../../redux/auth/selectors";
+import RestictedRoute from "../RestrictedRoute";
+import PrivateRoute from "../PrivateRoute";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() =>
@@ -36,9 +38,25 @@ export default function App() {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/register" element={<RegistrationPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/contacts" element={<ContactsPage />} />
+          <Route
+            path="/register"
+            element={
+              <RestictedRoute redirectTo="/" component={<RegistrationPage />} />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestictedRoute
+                redirectTo="/contacts"
+                component={<LoginPage />}
+              />
+            }
+          />
+          <Route
+            path="/contacts"
+            element={<PrivateRoute component={<ContactsPage />} />}
+          />
         </Routes>
       </Suspense>
     </Layout>
