@@ -1,9 +1,58 @@
 .form {
-  width: 320px;
+  max-width: 380px;
+  margin-top: 30px;
+  padding: 24px 32px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .label {
   display: flex;
   flex-direction: column;
-  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+.label > input,
+label > .formik-field {
+  margin-top: 6px;
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.label > input:focus,
+label > .formik-field:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px #007bffaa;
+}
+
+button {
+  padding: 12px 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  background-color: #004494;
 }

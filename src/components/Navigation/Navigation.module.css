@@ -1,11 +1,30 @@
+nav {
+  display: flex;
+  gap: 24px;
+  padding: 16px 20px;
+  background-color: #f0f4f8;
+  border-radius: 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .link {
-  display: inline-block;
   text-decoration: none;
-  padding: 12px;
-  font-weight: 700;
-  color: #2a363b;
+  color: #333;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link:hover,
+.link:focus {
+  background-color: #007bff;
+  color: #fff;
+  outline: none;
 }
 
 .link.active {
-  color: #e84a5f;
+  background-color: #0056b3;
+  color: #fff;
 }

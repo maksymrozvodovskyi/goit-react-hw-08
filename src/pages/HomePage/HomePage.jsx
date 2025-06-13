@@ -4,11 +4,19 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    padding: "0 20px",
+    backgroundColor: "#f9f9f9",
   },
   title: {
-    fontWeight: 500,
-    fontSize: 48,
+    fontWeight: 600,
+    fontSize: 40,
     textAlign: "center",
+    color: "#333",
+    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+  },
+  emoji: {
+    marginLeft: 8,
+    fontSize: 42,
   },
 };
 

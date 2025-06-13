@@ -7,7 +7,6 @@ import { useEffect } from "react";
 
 export default function ContactPage() {
   const dispatch = useDispatch();
-  // const isLoading = useSelector(selectLoading);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -15,10 +14,20 @@ export default function ContactPage() {
 
   return (
     <div>
-      <h1>Phonebook</h1>
+      <h1
+        style={{
+          fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+          fontSize: "36px",
+          fontWeight: "700",
+          color: "#222",
+          margin: "24px 0 30px 0",
+          userSelect: "none",
+        }}
+      >
+        Phonebook
+      </h1>
       <ContactForm />
       <SearchBox />
-      {/* <div>{isLoading && "Request in progress..."}</div> */}
       <ContactList />
     </div>
   );
