@@ -1,36 +1,33 @@
-/* SearchBox.module.css */
-
 .searchBoxWrap {
-  max-width: 400px;
+  max-width: 480px;
   margin-top: 20px;
-  padding: 12px 20px;
-  background-color: #f9fafe;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  padding: 16px 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
-  user-select: none;
 }
 
 .searchBoxWrap p {
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   font-weight: 600;
-  font-size: 16px;
-  color: #555;
+  font-size: 15px;
 }
 
 .textWrap {
   width: 100%;
   padding: 10px 14px;
-  font-size: 16px;
-  border: 1.8px solid #ccc;
+  font-size: 15px;
+  border: 1.6px solid #ccc;
   border-radius: 6px;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
+  margin-bottom: 16px;
 }
 
 .textWrap:focus {
   outline: none;
   border-color: #007bff;
-  box-shadow: 0 0 6px #007bffaa;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
 }
