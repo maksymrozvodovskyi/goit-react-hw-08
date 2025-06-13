@@ -10,8 +10,16 @@ export const selectError = (state) => state.contacts.error;
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
   (contacts, nameFilter) => {
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(nameFilter.toLowerCase())
-    );
+    const containsDigit = /\d/.test(nameFilter);
+
+    if (containsDigit) {
+      return contacts.filter((contact) =>
+        contact.number.toLowerCase().includes(nameFilter.toLowerCase())
+      );
+    } else {
+      return contacts.filter((contact) =>
+        contact.name.toLowerCase().includes(nameFilter.toLowerCase())
+      );
+    }
   }
 );

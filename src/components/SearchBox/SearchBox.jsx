@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import css from "./SearchBox.module.css";
-import { changeFilter } from "../../redux/filters/slice";
+import { changeNameFilter } from "../../redux/filters/slice";
 import { selectNameFilter } from "../../redux/filters/selectors";
 import { useDebouncedCallback } from "use-debounce";
 
@@ -8,10 +8,9 @@ export default function SearchBox() {
   const filter = useSelector(selectNameFilter);
   const dispatch = useDispatch();
 
-  const debounced = useDebouncedCallback(
-    (value) => dispatch(changeFilter(value)),
-    300
-  );
+  const debounced = useDebouncedCallback((value) => {
+    dispatch(changeNameFilter(value));
+  }, 300);
 
   return (
     <div className={css.searchBoxWrap}>
